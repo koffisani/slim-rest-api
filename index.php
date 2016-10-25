@@ -6,6 +6,7 @@ require "bootstrap.php";
 
 use Chatter\Models\Message;
 use Chatter\Middleware\Logging AS ChatterLogging;
+use Chatter\Middleware\Authentication AS ChatterAuth;
 
 $app = new \Slim\App([
   'settings' => [
@@ -13,6 +14,7 @@ $app = new \Slim\App([
   ]
 ]);
 
+$app->add(new ChatterAuth());
 $app->add(new ChatterLogging());
 
 // Routes

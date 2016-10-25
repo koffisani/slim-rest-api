@@ -2,6 +2,7 @@
 
 namespace Chatter\Middleware;
 
+use Chatter\Models\User;
 class Authentication
 {
   public function __invoke($request, $response, $next)
@@ -13,8 +14,10 @@ class Authentication
 
     $user = new User();
 
-    if(!user->authenticate($apikey)){
+    if(!$user->authenticate($apikey)){
       $response->withStatus(401);
+
+      return $response;
     }
     $response = $next($request, $response);
 
