@@ -17,6 +17,8 @@ $app = new \Slim\App([
 $app->add(new ChatterAuth());
 $app->add(new ChatterLogging());
 
+
+
 // Routes
 require "config/routes.php";
 
