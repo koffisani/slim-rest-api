@@ -83,37 +83,6 @@ $app->group('/messages', function(){
     });
 });
 
-
-/*$app->post("/messages", function($request, $response, $args){
-    $_message = $request->getParsedBodyParam('message', '');
-
-    $imagepath = '';*/
-    /*$files = $request->getUploadedFiles();
-    $newfile = $files['file'];
-
-    if($newfile->getError() === UPLOAD_ERR_OK){
-        $uploadFilename = $newfile->getClientFilename();
-        $newfile->moveTo("assets/images/" . $uploadFilename);
-        $imagepath = "assets/images/" . $uploadFilename;
-    }*/
-/*
-    $message = new Message();
-    $message->body = $_message;
-    $message->user_id = -1;
-    $message->image_url = $request->getAttribute('png_filename');
-    $message->save();
-
-    if($message->id){
-        $payload = [
-            'message_id' => $message->id,
-            'message_uri' => '/messages/' . $message->id
-        ];
-        return $response->withStatus(201)->withJSon($payload);
-    } else {
-            return $response->withStatus(400);
-    }
-})->add($filter)->add($removeExif)->add($move);*/
-
 $app->delete('/messages/{message_id}', function($request, $response, $args){
 
 
